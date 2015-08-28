@@ -2,7 +2,6 @@ app.controller('MainController', function ($scope, FlashCardsFactory, $log, Scor
 
   $scope.categories = FlashCardsFactory.categories;
   $scope.selectedCategory;
-
   $scope.getCategoryCards = function (category) {
     $scope.loading = true;
     FlashCardsFactory.getFlashCards(category).then(function(cards){
@@ -16,5 +15,9 @@ app.controller('MainController', function ($scope, FlashCardsFactory, $log, Scor
     });
   };
 
+  $scope.$on('someEvent', function (data) {
+    console.log("it all works!!!!!")
+    $scope.getCategoryCards(data.category)
+  });
   $scope.getCategoryCards();
 });

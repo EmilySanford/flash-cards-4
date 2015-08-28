@@ -1,0 +1,42 @@
+<form name="newCardForm" ng-submit='addCard(newCard)' >
+        <input required ng-minlength='15' name="question" type="text" ng-model="newCard.question">
+       
+            <div ng-show="newCardForm.question.$error.minlength" style="color:red">
+            Your field is too short
+            </div>
+        <div ng-hide="newCardForm.question.$pristine">
+            <div ng-show="newCardForm.question.$error.required"style="color:red">
+            you MUST enter a question!
+            </div>
+        </div>
+        <select required name="category" ng-model="newCard.category">
+            <option>Express</option>
+            <option>Mongo</option>
+            <option>Node</option>
+            <option>Angular</option>
+        </select>
+            <div ng-show="newCardForm.category.$error.required"style="color:red">
+            you MUST select a category, RAWR!
+            </div>
+        <div>
+        <input ng-maxlength='40' type="text" name="answer1" ng-model="newCard.answers[0].text">
+            <div ng-show="newCardForm.answer1.$error.maxlength" style="color:red">
+            This answer is too long, holmes!
+            </div>
+        <input type="checkbox" ng-model="newCard.answers[0].correct" name="correct">Correct</label>
+        <input ng-maxlength='40' type="text" name="answer2" ng-model="newCard.answers[1].text">
+            <div ng-show="newCardForm.answer2.$error.maxlength" style="color:red">
+            This answer is too long, holmes!
+            </div>  
+        <input type="checkbox" ng-model="newCard.answers[1].correct" name="correct">Correct</label>
+        <input ng-maxlength='40' type="text" name="answer3" ng-model="newCard.answers[2].text">
+            <div ng-show="newCardForm.answer3.$error.maxlength" style="color:red">
+            This answer is too long, holmes!
+            </div>
+        <input type="checkbox" ng-model="newCard.answers[2].correct" name="correct">Correct</label>
+        <button type="submit">Submit</button>
+        <div>
+        <div ng-show="newCardForm.answer.$error.maxlength" style="color:red">
+        This answer is too long, holmes!
+        </div>
+    </form>

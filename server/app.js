@@ -68,4 +68,8 @@ app.post('/cards', function(req, res, next){
 
     })
   
+app.put('/cards/:flashCardId', function(req, res, next) {
+   var theCard = FlashCardModel.findOne({_id: req.params.flashCardId});
+   console.log("hit the put route!", theCard)
+})
 });

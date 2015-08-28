@@ -12,27 +12,18 @@
 <body ng-app="flashCards" ng-cloak>
     <div ng-controller="StatsController" id="statistics">
         <div id="scoreboard">
+
             <h3>Correct: <span>{{ scores.correct }}</span></h3>
             <h3>Incorrect: <span>{{ scores.incorrect }}</span></h3>
         </div>
     </div>
+    <!--      NEW CARD CONTROLLER -->
     <div ng-controller="NewCardController">
-        <input name="question" type="text" ng-model="newCard.question">
-        <select name="category" ng-model="newCard.category">
-            <option>Express</option>
-            <option>Mongo</option>
-            <option>Node</option>
-            <option>Angular</option>
-        </select>
-        <input type="text" name="answer" ng-model="newCard.answers[0].text">
-        <input type="checkbox" ng-model="newCard.answers[0].correct" name="correct">Correct</label>
-        <input type="text" name="answer" ng-model="newCard.answers[1].text">
-        <input type="checkbox" ng-model="newCard.answers[1].correct" name="correct">Correct</label>
-        <input type="text" name="answer" ng-model="newCard.answers[2].text">
-        <input type="checkbox" ng-model="newCard.answers[2].correct" name="correct">Correct</label>
-        <pre>{{ newCard | json }}</pre>
-        <button ng-click="addCard(newCard)">Submit</button>
+    <card-form></card-form>
     </div>
+
+
+
     <div ng-controller="MainController">
         <div class="cats">
             <button border-hover ng-repeat="category in categories" class="category-button" ng-click="getCategoryCards(category)" ng-class="{ active: category === selectedCategory }">{{ category }}</button>
@@ -49,6 +40,7 @@
         <script src="/js/directives/flashcard/flashcard.js"></script>
         <script src="/js/directives/boldborder/boldborder.js"></script>
         <script src="/js/controllers/new.card.controller.js"></script>
+        <script src="/js/directives/Forms/form.js"></script>
 </body>
 
 </html>
